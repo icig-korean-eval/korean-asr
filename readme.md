@@ -1,17 +1,76 @@
 # Foreign Korean Speech Recognition with Whisper
 
-This repository fine-tunes OpenAI's Whisper model to **transcribe Korean speech spoken by non-native speakers**.  
-The model is based on `whisper-base`, and it is trained using a public dataset provided by AI Hub.
+- Fine-tuned OpenAI’s Whisper model to transcribe Korean speech spoken by non-native speakers
+- Model: Fine-tuned version of [whisper-base](https://huggingface.co/openai/whisper-base)
+- Training data: [Korean Speech by Foreigners for AI Learning](https://www.aihub.or.kr/aihubdata/data/view.do?currMenu=&topMenu=&aihubDataSe=data&dataSetSn=505) provided by AI Hub
 
 
 
 ## Project Overview
 
-- **Model**: [OpenAI Whisper-Base](https://huggingface.co/openai/whisper-base)  
-- **Dataset**:  
-  [AI Hub – Foreigners’ Korean Speech Dataset for AI Learning](https://www.aihub.or.kr/aihubdata/data/view.do?currMenu=&topMenu=&aihubDataSe=data&dataSetSn=505)  
-- **contribution**: Juncheol Kim – 100%
+While OpenAI’s Whisper model supports multilingual speech recognition including Korean, 
+its performance is significantly limited when it comes to recognizing **Korean spoken by non-native speakers**.
 
+To address this, we fine-tuned the pretrained [`whisper-base`](https://huggingface.co/openai/whisper-base) model 
+using the **[Korean Speech by Foreigners for AI Learning](https://www.aihub.or.kr/aihubdata/data/view.do?currMenu=&topMenu=&aihubDataSe=data&dataSetSn=505)** dataset from AI Hub 
+to improve recognition accuracy for non-native Korean speech.
+
+
+## Dataset
+
+- Dataset used: [AI Hub – Korean Speech by Foreigners for AI Learning](https://www.aihub.or.kr/aihubdata/data/view.do?currMenu=&topMenu=&aihubDataSe=data&dataSetSn=505)
+
+### Dataset Analysis
+
+- Total duration: approx. **4,300 hours**
+- Total samples: approx. **1.2 million** utterance-text pairs
+- Total size: approx. **340 GB**
+
+Due to limited GPU resources, we were not able to train on the entire dataset. Instead, we applied the following filtering and sampling strategy:
+
+- Selected only speakers whose **native language** is English, Chinese, Vietnamese, Thai, or Japanese
+- Included only audio samples with **duration between 8 and 14 seconds**
+- To ensure balance, we **uniformly sampled** an equal number of utterances for each language group by category
+
+- See below for full dataset distribution
+
+  | languageClass | culture1 | culture2 | general | life1 | life2 |
+  |---------------|----------|----------|---------|--------|--------|
+  | Vietnamese        | 18913    | 14345    | 21434   | 19242  | 17255  |
+  | English           | 1489     | 943      | 8512    | 1797   | 1905   |
+  | Japanese         | 27720    | 25192    | 25539   | 24629  | 24275  |
+  | Chinese         | 31587    | 0        | 38643   | 33311  | 29151  |
+
+- Final dataset distribution
+  - trian
+
+    | languageClass | culture1 | general | life1 | life2 |
+    |---------------|----------|---------|--------|--------|
+    | Vietnamese        | 1489     | 1489    | 1489   | 1489   |
+    | English           | 1489     | 1489    | 1489   | 1489   |
+    | Japanese         | 1489     | 1489    | 1489   | 1489   |
+    | Chinese         | 1489     | 1489    | 1489   | 1489   |
+  - validation
+
+    | languageClass | culture1 | general | life1 | life2 |
+    |---------------|----------|---------|--------|--------|
+    | Vietnamese        | 308      | 308     | 308    | 308    |
+    | English           | 0        | 308     | 308    | 308    |
+    | Japanese         | 308      | 308     | 308    | 308    |
+    | Chinese         | 308      | 308     | 308    | 308    |
+  - test
+
+    | languageClass | culture1 | general | life1 | life2 |
+    |---------------|----------|---------|--------|--------|
+    | Vietnamese        | 108      | 108     | 108    | 108    |
+    | English           | 0        | 108     | 0      | 108    |
+    | Japanese         | 108      | 108     | 108    | 108    |
+    | Chinese         | 108      | 108     | 108    | 108    |
+
+
+## Training Method
+
+- Fine-tuning was performed using HuggingFace’s `transformers` library with the **`Seq2SeqTrainer`** API.
 
 
 ## Project Structure
@@ -53,6 +112,11 @@ The model is based on `whisper-base`, and it is trained using a public dataset p
 
 - [View on HuggingFace](https://huggingface.co/icig/non-native-korean-speech-asr)
 
+
+## Contribution
+
+- JoonChul Kim - 100%
+  - All development, implementation, and documentation were completed individually.
 
 
 ## License
