@@ -32,7 +32,7 @@
   전체 데이터를 불러와 Whisper 파인튜닝 프로세스를 간단히 테스트한 노트북입니다.
 
 - `data_analyze.ipynb`:  
-  학습용(train) 데이터셋의 언어 및 라벨별 분포를 분석하고, 균형 잡힌 분포를 갖도록 재조정한 후 train/validation으로 분할하여 저장합니다.
+  학습용(train) 데이터셋의 언어 및 라벨별 분포를 분석하고, 균형 잡힌 분포를 갖도록 재조정한 후 train/validation/test으로 분할하여 저장합니다.
 
 - `data_test_prepare.ipynb`:  
   테스트용(test) 데이터를 위와 같은 방식으로 분할 및 저장하는 노트북입니다.

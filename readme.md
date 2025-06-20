@@ -10,7 +10,7 @@ The model is based on `whisper-base`, and it is trained using a public dataset p
 - **Model**: [OpenAI Whisper-Base](https://huggingface.co/openai/whisper-base)  
 - **Dataset**:  
   [AI Hub – Foreigners’ Korean Speech Dataset for AI Learning](https://www.aihub.or.kr/aihubdata/data/view.do?currMenu=&topMenu=&aihubDataSe=data&dataSetSn=505)  
-- **Author**: Juncheol Kim – 100% individual contribution
+- **contribution**: Juncheol Kim – 100%
 
 
 
@@ -30,7 +30,7 @@ The model is based on `whisper-base`, and it is trained using a public dataset p
   A notebook for initial testing of the fine-tuning process using the full dataset.
 
 - `data_analyze.ipynb`:  
-  Analyzes the distribution of languages and labels in the training set, rebalances them, and splits the dataset into train/validation subsets.
+  Analyzes the distribution of languages and labels in the training set, rebalances them, and splits the dataset into train/validation/test subsets.
 
 - `data_test_prepare.ipynb`:  
   Prepares the test dataset in the same way as the training set (rebalancing and splitting).
