@@ -57,8 +57,8 @@ The model is based on `whisper-base`, and it is trained using a public dataset p
 
 ## License
 
-This project is licensed under the [Apache License 2.0](license/LICENSE).
+This project is licensed under the [Apache License 2.0](LICENSE).
 
 It uses the pretrained [`openai/whisper-base`](https://huggingface.co/openai/whisper-base) model hosted on HuggingFace, which is also licensed under Apache 2.0.
 
-For more information, see the [`NOTICE`](license/NOTICE) file.
+For more information, see the [`NOTICE`](NOTICE) file.

@@ -58,8 +58,8 @@
 
 ## License
 
-This project is licensed under the [Apache License 2.0](license/LICENSE).
+This project is licensed under the [Apache License 2.0](LICENSE).
 
 We use the pretrained [`openai/whisper-base`](https://huggingface.co/openai/whisper-base) model hosted on HuggingFace, which is also licensed under Apache 2.0.
 
-For details, see [`NOTICE`](license/NOTICE).
+For details, see [`NOTICE`](NOTICE).
