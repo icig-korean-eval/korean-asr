@@ -1,0 +1,8 @@
+This project fine-tunes the 'openai/whisper-base' model hosted on HuggingFace:
+https://huggingface.co/openai/whisper-base
+
+The pretrained model is licensed under the Apache License 2.0.
+
+Modifications by K1 A2:
+- Fine-tuned on AI Hub "Foreigners' Korean Speech" dataset
+- Custom training pipeline and evaluation scripts for Korean ASR
